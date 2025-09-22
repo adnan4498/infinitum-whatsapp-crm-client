@@ -8,7 +8,7 @@ export default function SignupPage() {
 
   const onFinish = async (values) => {
     try {
-      const response = await fetch('http://localhost:3000/signup', {
+      const response = await fetch('http://localhost:3001/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -20,6 +20,8 @@ export default function SignupPage() {
       });
 
       const data = await response.json();
+
+      console.log(data, "ddd")
 
       if (response.ok) {
         message.success(data.message || 'Signup successful!');
